@@ -16,6 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug - List files
+        run: ls -R .github/actions
       - uses: ./.github/actions/setup-python
       - name: Lint with flake8
         run: flake8 . --count --statistics --max-line-length=127 --max-complexity=5 --ignore=E203,W503
