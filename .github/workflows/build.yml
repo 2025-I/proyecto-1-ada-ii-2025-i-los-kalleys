@@ -1,0 +1,21 @@
+name: Build Project
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup python
+        uses: ./.github/actions/setup-python
+      - name: Lint with flake8
+        run: flake8 . --count --statistics --max-line-length=127 --max-complexity=10 --ignore=E203,W503
