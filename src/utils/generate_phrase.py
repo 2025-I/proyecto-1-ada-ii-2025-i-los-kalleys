@@ -1,5 +1,5 @@
 from faker import Faker
-from normalize import normalizer
+from utils.normalize import normalizer
 import random
 
 fake = Faker()
@@ -23,3 +23,7 @@ def generate_test_phrase() -> tuple[str, str]:
     insert_pos: int = random.randint(0, len(base_text))
     phrase: str = clean_text[:insert_pos] + palindrome + clean_text[insert_pos:]
     return phrase, palindrome
+
+
+def generate_list_test_phrase(length: int) -> list[tuple[str, str]]:
+    return [generate_test_phrase() for _ in range(length)]
