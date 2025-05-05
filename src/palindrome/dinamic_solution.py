@@ -6,7 +6,7 @@ def max_dynamic_palindrome(phrase: str) -> str:
 
     max_length: int = 1
     start: int = 0
-    matrix: list[list][bool] = [[False for _ in range(phrase_len)] for _ in range(phrase_len)]
+    matrix: list[list[bool]] = [[False for _ in range(phrase_len)] for _ in range(phrase_len)]
 
     def is_palindrome_range(i: int, j: int) -> bool:
         is_neighbor: bool = i + 1 == j
