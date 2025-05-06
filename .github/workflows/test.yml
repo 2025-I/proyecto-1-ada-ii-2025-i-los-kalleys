@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions/setup-python
       - name: Run and coverage tests with unittest
         run: |
-          coverage run --branch run_test.py
+          coverage run --branch run_tests.py
           coverage xml -o coverage.xml
       - name: Upload coverage report
         uses: codacy/codacy-coverage-reporter-action@v1
