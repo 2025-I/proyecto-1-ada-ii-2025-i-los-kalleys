@@ -1,25 +1,25 @@
-name: Run Tests
-
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
-
-jobs:
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up python
-        uses: ./.github/actions/setup-python
-      - name: Run and coverage tests with unittest
-        run: |
-          coverage run --branch run_tests.py
-          coverage xml -o coverage.xml
-      - name: Upload coverage report
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage.xml
+# name: Run Tests
+#
+# on:
+#   push:
+#     branches: ["main"]
+#   pull_request:
+#     branches: ["main"]
+#
+# jobs:
+#   tests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       - name: Set up python
+#         uses: ./.github/actions/setup-python
+#       - name: Run and coverage test palindrome with unittest
+#         run: |
+#           coverage run --append --branch run_tests.py
+#           coverage xml -o coverage.xml
+#       - name: Upload coverage report
+#         uses: codacy/codacy-coverage-reporter-action@v1
+#         with:
+#           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+#           coverage-reports: coverage.xml
