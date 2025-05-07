@@ -10,7 +10,7 @@ def greedy_palindromic_substring(text: str) -> str:
             left -= 1
             right += 1
 
-        return text[left + 1:right]
+        return text[left + 1 : right]
 
     for i in range(len(text)):
         if i + 1 < len(text) and text[i] == text[i + 1]:

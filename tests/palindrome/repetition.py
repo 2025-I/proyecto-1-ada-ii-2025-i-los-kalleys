@@ -30,3 +30,11 @@ class TestRepetition(unittest.TestCase):
             phrase, expected = list_phrase[i]
             result = self._algorithm(phrase)
             self.assertIn(expected, result)
+
+    def run_all_tests(self):
+        sizes: list[int] = [100, 1000, 10000, 50000]
+
+        self.run_n_repetitions(10, 1)
+
+        for size in sizes:
+            self.run_n_repetitions(size)
