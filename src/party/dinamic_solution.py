@@ -27,9 +27,7 @@ def topological_sort(dependency_graph: dict[int, list[int]], dependency_count: l
         current_employee = cola.get()
         topo_order.append(current_employee)
         for subordinate in dependency_graph[current_employee]:
-            dependency_count[subordinate] -= 1
-            if dependency_count[subordinate] == 0:
-                cola.put(subordinate)
+            cola.put(subordinate)
 
     return topo_order
 
