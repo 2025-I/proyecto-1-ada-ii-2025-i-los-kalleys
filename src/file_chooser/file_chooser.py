@@ -149,7 +149,8 @@ class FileReaderApp:
                 matrix.append(row)
 
             weights = list(map(int, file.readline().strip().split()))
-            print(action(matrix, weights))
+            result = action(matrix, weights)
+            print(" ".join(str(x) for x in result))
 
         file.close()
 
