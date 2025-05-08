@@ -6,10 +6,15 @@ from typing import Optional
 
 class TestBruteForcePalindrome(TestRepetition):
     def setUp(self):
-        self.setAlgorithm(max_subsequence_palindrome, generate_test_phrase, self.validate)
+        self.setAlgorithm(
+            max_subsequence_palindrome, generate_test_phrase, self.validate
+        )
 
     def validate(self, _: Optional[int] = None):
         return self.assertIn
+
+    def test_toy(self):
+        self.run_n_repetitions(10, 1)
 
     def test_brute_force_solution(self):
         print("\nTiempos de ejecución de solucion fuerza bruta palindrome")
