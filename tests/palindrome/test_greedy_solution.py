@@ -11,6 +11,9 @@ class TestGreedyPalindrome(TestRepetition):
     def validate(self, _: Optional[int] = None):
         return self.assertIn
 
+    def test_toy(self):
+        self.run_n_repetitions(10, 1)
+
     def test_greedy_solution(self):
         print("\nTiempos de ejecución de solucion voraz palindrome")
         self.run_all_tests([100, 1000, 10000, 50000])

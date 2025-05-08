@@ -9,14 +9,17 @@ La función `max_subsequence_palindrome` encuentra la **subcadena palindrómica 
 ## ⚙️ Funcionamiento paso a paso
 
 1. **Inicialización**:
+
    - Se define `longest_palindrome` como una cadena vacía.
    - Se obtiene la longitud del texto con `text_length = len(text)`.
 
 2. **Generación de subcadenas**:
+
    - Dos bucles anidados recorren todas las combinaciones posibles de índices `start` y `end`.
    - Cada subcadena se extrae con `text[start:end]`.
 
 3. **Verificación de palíndromo**:
+
    - Se evalúa cada subcadena con `is_palindrome(substring)`.
    - Si la subcadena es un palíndromo y su longitud es mayor que la del actual `longest_palindrome`, se actualiza.
 
@@ -30,7 +33,5 @@ La función `max_subsequence_palindrome` encuentra la **subcadena palindrómica 
 ### Complejidad temporal
 
 - Se generan `(n²)` subcadenas.
-- Cada verificación de palíndromo toma hasta \( O(n) \) tiempo.
-- Por lo tanto, la **complejidad temporal total** es:
-
-`O(n³)`
+- Cada verificación de palíndromo toma hasta `O(n)` tiempo.
+- Por lo tanto, la **complejidad temporal total** es: `O(n³)`
