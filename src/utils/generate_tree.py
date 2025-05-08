@@ -59,3 +59,23 @@ def generate_tree_solution(size: int) -> tuple[tuple[list[list[int], list[int]]]
     nodes.append(total_sum)
 
     return ((adj_matrix, weights), nodes)
+
+
+def adj_matrix_greedy_solution() -> tuple[tuple[list[list[int], list[int]]], list[int]]:
+
+    adj_matrix: list[list[int]] = [
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+    weights: list[int] = [2, 7, 9, 7, 5, 3, 6, 8, 9, 2]
+    nodes = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 31]
+
+    return ((adj_matrix, weights), nodes)
