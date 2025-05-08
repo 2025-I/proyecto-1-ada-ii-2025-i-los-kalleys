@@ -1,11 +1,10 @@
 from tests.repetition import TestRepetition
 from src.party.greedy_solution import greedy_party
 from src.utils.generate_tree import generate_tree_solution, adj_matrix_greedy_solution
-from typing import Optional
 
 
 class TestGreedyParty(TestRepetition):
-    def validate(self, size: Optional[int] = None):
+    def validate(self, size: int):
         def validate_aux(expected, result):
             if size > 10 and not expected:
                 self.assertEqual(size + 1, len(result))

@@ -4,7 +4,9 @@ from typing import Callable
 
 
 class TestRepetition(unittest.TestCase):
-    def setAlgorithm(self, algorithm: Callable[[str], str], generate_test: Callable, validate: Callable):
+    def setAlgorithm(
+        self, algorithm: Callable, generate_test: Callable, validate: Callable
+    ):
         self._algorithm = algorithm
         self._generate_test = generate_test
         self._validate = validate
@@ -31,6 +33,8 @@ class TestRepetition(unittest.TestCase):
         )
 
     def run_all_tests(self, sizes: list[int]):
+        if len(sizes) == 0:
+            return
 
         for size in sizes:
             self.run_n_repetitions(size)

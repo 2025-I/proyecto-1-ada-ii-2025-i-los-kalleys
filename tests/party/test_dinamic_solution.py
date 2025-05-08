@@ -1,14 +1,15 @@
 from tests.repetition import TestRepetition
 from src.party.dinamic_solution import max_dinamic_invite_values
 from src.utils.generate_tree import generate_tree_solution
-from typing import Optional
 
 
 class TestMaxDynamicPalindrome(TestRepetition):
     def setUp(self):
-        self.setAlgorithm(max_dinamic_invite_values, generate_tree_solution, self.validate)
+        self.setAlgorithm(
+            max_dinamic_invite_values, generate_tree_solution, self.validate
+        )
 
-    def validate(self, size: Optional[int] = None):
+    def validate(self, size: int):
         def validate_aux(expected, result):
             if size > 10 and not expected:
                 self.assertEqual(size + 1, len(result))
