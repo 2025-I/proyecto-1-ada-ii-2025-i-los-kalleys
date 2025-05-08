@@ -1,4 +1,5 @@
-from utils.is_palindrome import is_palindrome
+def is_palindrome(phrase: str) -> bool:
+    return phrase == phrase[::-1]
 
 
 def max_subsequence_palindrome(text: str) -> str:

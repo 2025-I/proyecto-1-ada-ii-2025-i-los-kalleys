@@ -2,9 +2,9 @@
 
 Este archivo de workflow de GitHub Actions está diseñado para ejecutar un análisis de seguridad utilizando **Codacy Analysis CLI** y subir los resultados en formato SARIF para integrarse con el escaneo de código de GitHub.
 
-## 📦 Workflow: Codacy Scan
+## 📦 Workflow: Codacy Security Scan
 
-#### **Archivo:** `.github/workflows/codacy.yml`
+**Archivo:** `.github/workflows/codacy.yml`
 
 ### Nombre del Workflow
 

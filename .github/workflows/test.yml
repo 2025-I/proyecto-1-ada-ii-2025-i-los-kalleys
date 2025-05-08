@@ -14,12 +14,16 @@
 #         uses: actions/checkout@v4
 #       - name: Set up python
 #         uses: ./.github/actions/setup-python
-#       - name: Run and coverage test palindrome with unittest
-#         run: |
-#           coverage run --append --branch run_tests.py
-#           coverage xml -o coverage.xml
+#       - name: Run and coverage tests palindrome with unittest
+#         run: coverage run --append --branch run_tests_palindrome.py
+#       - name: Run and coverage tests party with unittest
+#         run: coverage run --append --branch run_tests_party.py
+#       - name: Report coverage to xml
+#         run: coverage xml -o coverage.xml
 #       - name: Upload coverage report
 #         uses: codacy/codacy-coverage-reporter-action@v1
 #         with:
 #           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
 #           coverage-reports: coverage.xml
+#
+
