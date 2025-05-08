@@ -21,9 +21,9 @@ def generate_random_palindrome(min_len: int = 20, max_len: int = 25) -> str:
         )  # Palíndromo impar
 
 
-def generate_test_phrase() -> tuple[str, str]:
+def generate_test_phrase(size) -> tuple[tuple[str], str]:
     palindrome: str = generate_random_palindrome()
-    length_phrase: int = random.randint(30, 35)
+    length_phrase: int = size
 
     base_text = fake.text(max_nb_chars=length_phrase * 2)[
         : length_phrase - len(palindrome)
@@ -32,8 +32,5 @@ def generate_test_phrase() -> tuple[str, str]:
     clean_text: str = normalizer(base_text)
     insert_pos: int = random.randint(0, len(base_text))
     phrase: str = clean_text[:insert_pos] + palindrome + clean_text[insert_pos:]
-    return phrase, palindrome
-
-
-def generate_list_test_phrase(length: int) -> list[tuple[str, str]]:
-    return [generate_test_phrase() for _ in range(length)]
+    entry: tuple[str] = (phrase,)
+    return (entry, palindrome)
