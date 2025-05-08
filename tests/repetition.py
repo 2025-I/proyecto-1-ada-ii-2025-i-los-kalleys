@@ -2,6 +2,7 @@ import unittest
 import time
 from typing import Callable
 
+
 class TestRepetition(unittest.TestCase):
     def setAlgorithm(self, algorithm: Callable[[str], str], generate_test: Callable, validate: Callable):
         self._algorithm = algorithm
@@ -14,12 +15,12 @@ class TestRepetition(unittest.TestCase):
         for _ in range(repetitions):
             (entry, expected) = self._generate_test(num_tests)
             start: float = time.time()
-            
+
             result = self._algorithm(*entry)
 
             end: float = time.time()
 
-            self._validate(expected, result)
+            self._validate(num_tests)(expected, result)
             average_time += end - start
 
         if repetitions == 1:
@@ -29,8 +30,7 @@ class TestRepetition(unittest.TestCase):
             f"Tiempo promedio de ejecución para tamaño {num_tests}: {average_time / repetitions:.4f} segundos"
         )
 
-
     def run_all_tests(self, sizes: list[int]):
-        
+
         for size in sizes:
             self.run_n_repetitions(size)

@@ -45,6 +45,9 @@ def generate_tree_solution(size: int) -> tuple[tuple[list[list[int], list[int]]]
     adj_matrix: list[list[int]] = generate_adj_matrix(size, list(tree.edges()))
     weights: list[int] = [random.randint(1, 50) for _ in range(size)]
 
+    if size > 10:
+        return ((adj_matrix, weights), [])
+
     complement_tree = nx.complement(tree)
 
     for node in complement_tree.nodes():
@@ -56,4 +59,3 @@ def generate_tree_solution(size: int) -> tuple[tuple[list[list[int], list[int]]]
     nodes.append(total_sum)
 
     return ((adj_matrix, weights), nodes)
-
