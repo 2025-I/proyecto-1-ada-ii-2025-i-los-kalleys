@@ -1,4 +1,4 @@
-from tests.palindrome.repetition import TestRepetition
+from tests.repetition import TestRepetition
 from src.palindrome.greedy_solution import greedy_palindromic_substring
 
 

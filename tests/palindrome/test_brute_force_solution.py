@@ -1,5 +1,5 @@
 from src.palindrome.brute_force_solution import max_subsequence_palindrome
-from tests.palindrome.repetition import TestRepetition
+from tests.repetition import TestRepetition
 
 
 class TestBruteForcePalindrome(TestRepetition):

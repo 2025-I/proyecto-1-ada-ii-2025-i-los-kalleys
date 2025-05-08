@@ -1,21 +1,25 @@
 import unittest
 import time
-from src.utils.generate_phrase import generate_list_test_phrase
 from typing import Callable
 
-
 class TestRepetition(unittest.TestCase):
-    def setAlgorithm(self, algorithm: Callable[[str], str]):
+    def setAlgorithm(self, algorithm: Callable[[str], str], generate_test: Callable, validate: Callable):
         self._algorithm = algorithm
+        self._generate_test = generate_test
+        self._validate = validate
 
     def run_n_repetitions(self, num_tests: int, repetitions: int = 5):
         average_time: float = 0
 
         for _ in range(repetitions):
-            list_phrase: list[tuple[str, str]] = generate_list_test_phrase(num_tests)
+            (entry, expected) = self._generate_test(num_tests)
             start: float = time.time()
-            self.run_multiple_tests(num_tests, list_phrase)
+            
+            result = self._algorithm(*entry)
+
             end: float = time.time()
+
+            self._validate(expected, result)
             average_time += end - start
 
         if repetitions == 1:
@@ -25,16 +29,8 @@ class TestRepetition(unittest.TestCase):
             f"Tiempo promedio de ejecución para tamaño {num_tests}: {average_time / repetitions:.4f} segundos"
         )
 
-    def run_multiple_tests(self, num_tests: int, list_phrase: list[tuple[str, str]]):
-        for i in range(num_tests):
-            phrase, expected = list_phrase[i]
-            result = self._algorithm(phrase)
-            self.assertIn(expected, result)
 
-    def run_all_tests(self):
-        sizes: list[int] = [100, 1000, 10000, 50000]
-
-        self.run_n_repetitions(10, 1)
-
+    def run_all_tests(self, sizes: list[int]):
+        
         for size in sizes:
             self.run_n_repetitions(size)
