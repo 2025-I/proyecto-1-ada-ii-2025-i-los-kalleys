@@ -1,14 +1,15 @@
 from typing import List
+from typing import Dict
 
 
-def greedy_party(adj_matrix: List[List[int]], conv_list: List[int]) -> str:
+def greedy_party(adj_matrix: List[List[int]], conv_list: List[int]) -> list[int]:
     number_employees: int = len(adj_matrix)
 
     invited: list = [0] * number_employees
     blocked: list = [False] * number_employees
 
-    supervi: List[List[int]] = {i: [] for i in range(number_employees)}
-    subordin: List[List[int]] = {i: [] for i in range(number_employees)}
+    supervi: Dict[int, List[int]] = {i: [] for i in range(number_employees)}
+    subordin: Dict[int, List[int]] = {i: [] for i in range(number_employees)}
 
     for i in range(number_employees):
         for j in range(number_employees):
@@ -26,5 +27,4 @@ def greedy_party(adj_matrix: List[List[int]], conv_list: List[int]) -> str:
                 blocked[n] = True
 
     conv_total: int = sum(conv_list[i] for i in range(number_employees) if invited[i] == 1)
-    invited[:-1].append(conv_total)
     return invited + [conv_total]
